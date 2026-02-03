@@ -29,14 +29,14 @@ public class FixedWindowRateLimiter {
                 return existing;
             }
 
-            if (existing.getRequestCount() < maxRequest){
+            if (existing.getRequestCount() <= maxRequest){
                 existing.increment();
                 return existing;
             }
 
             return existing;
         });
-        return info.getRequestCount()<= maxRequest;
+        return info.getRequestCount() < maxRequest;
 
     }
 }
